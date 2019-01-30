@@ -4,6 +4,7 @@
 <td align="left">Tekanan Darah Atas</td>
 <td>
       {{ $trans_medis_fisik->id }}
+      
 </td>
 </tr>
 <tr>

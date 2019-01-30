@@ -25,7 +25,6 @@
           <p>
             Klinik Bersalin Graha Amani, Ruko Citra Harmoni, Sidoarjo.
           </p>
-          <h3>031-7871434</h3>
           <h3>082231212140</h3>
         </div>
       </div>

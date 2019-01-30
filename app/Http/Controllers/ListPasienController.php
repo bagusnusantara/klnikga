@@ -77,8 +77,6 @@ class ListPasienController extends Controller
         $periksa->jenis_kehamilan = $request->jenis_kehamilan;
         $periksa->kondisi_janin = $request->kondisi_janin;
         $periksa->letak_kepala = $request->letak_kepala;
-        $periksa->BPD = $request->BPD;
-        $periksa->FL = $request->FL;
         $periksa->cairan_ketuban = $request->cairan_ketuban;
         $periksa->placenta_di = $request->placenta_di;
         $periksa->grade = $request->grade;
@@ -90,6 +88,8 @@ class ListPasienController extends Controller
         $periksa->taksiran_persalinan = Carbon::parse($request->taksiran_persalinan)->format('Y-m-d');
         $periksa->tgl_periksa = Carbon::parse($request->tgl_periksa)->format('Y-m-d');
         $periksa->hpht = Carbon::parse($request->hpht)->format('Y-m-d');
+        $periksa->usia_kehamilan = $request->usia_kehamilan;
+        $periksa->keterangan = $request->keterangan;
         if($request->file('foto1')){
         $file = $request->file('foto1')->store('foto', 'public');
         $periksa->foto1 = $file;
