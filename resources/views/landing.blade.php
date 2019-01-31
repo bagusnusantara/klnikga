@@ -84,9 +84,9 @@
             <h1>
               Klinik Graha Amani
             </h1>
-            <p class="pt-10 pb-10 text-white">
+            <!-- <p class="pt-10 pb-10 text-white">
               Klinik ibu anak
-            </p>
+            </p> -->
             <a href="{{ url('login') }}" class="primary-btn text-uppercase">Yuk Berkonsultasi!</a>
           </div>
         </div>
