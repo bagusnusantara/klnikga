@@ -82,11 +82,10 @@
         <div class="row fullscreen d-flex align-items-center justify-content-center">
           <div class="banner-content col-lg-8 col-md-12">
             <h1>
-              Mencegah Lebih Baik
-              dari Mengobati
+              Klinik Graha Amani
             </h1>
             <p class="pt-10 pb-10 text-white">
-              Mulai kenali gejalanya, konsultasikan, obati :)
+              Klinik ibu anak
             </p>
             <a href="{{ url('login') }}" class="primary-btn text-uppercase">Yuk Berkonsultasi!</a>
           </div>
@@ -141,24 +140,8 @@
                 <span>Jadwal Praktek Dokter Spesialis Anak :</span>
               </li>
               <li class="d-flex justify-content-between">
-                <span>Senin</span>
-                <span>18.00 WIB - 19.30 WIB dan 20.00 -21.30 WIB</span>
-              </li>
-              <li class="d-flex justify-content-between">
-                <span>Selasa</span>
-                <span>20.00 WIB - 21.30 WIB</span>
-              </li>
-              <li class="d-flex justify-content-between">
-                <span>Rabu</span>
-                <span>19.30 WIB - 21.00 WIB</span>
-              </li>
-              <li class="d-flex justify-content-between">
-                <span>Kamis</span>
-                <span>20.00 WIB - 21.30 WIB</span>
-              </li>
-              <li class="d-flex justify-content-between">
-                <span>Jum'at</span>
-                <span>20.00 WIB - 21.30 WIB</span>
+                <span>Senin - Jum'at</span>
+                <span>18.00 WIB - 19.30</span>
               </li>
               <li class="d-flex justify-content-between">
                 <span>Sabtu</span>
