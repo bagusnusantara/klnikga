@@ -12,94 +12,7 @@
   						<h3 class="mb-30">Histori Rekam Medis Pasien</h3>
   						<div class="row">
   							<div class="col-md-9">
-                  <!-- <table class="table table-striped table-bordered table-hover dataTables-example" >
-                  <tr>
-                  <td>1</td>
-                  <td align="left">Nama</td>
-                  <td>
 
-                  </td>
-                  </tr>
-                  <tr>
-                  <td>2</td>
-                  <td align="left">Terlalu tua hamil I ≥ 35 Tahun</td>
-                  <td>
-                  </td>
-                  </tr>
-                  <tr>
-                  <td>3</td>
-                  <td align="left">Terlalu lambat hamil I kawin ≥ 4 Tahun</td>
-                  <td>
-                  </td>
-                  </tr>
-                  <tr>
-                  <td>4</td>
-                  <td align="left">Terlalu lama hamil lagi ≥ 10 Tahun</td>
-                  <td>
-                  </td>
-                  </tr>
-                  <tr>
-                  <td>5</td>
-                  <td align="left">Terlalu cepat hamil lagi ≤ 2 Tahun</td>
-                  <td>
-                  </td>
-                  </tr>
-                  <tr>
-                  <td>6</td>
-                  <td align="left">Terlalu banyak anak, 4 atau lebih</td>
-                  <td>
-                  </td>
-                  </tr>
-                  <tr>
-                  <td>7</td>
-                  <td align="left">Terlalu tua umur ≥ 35 Tahun</td>
-                  <td>
-                  </td>
-                  </tr>
-                  <tr>
-                  <td>8</td>
-                  <td align="left">Terlalu pendek ≤ 145 cm</td>
-                  <td>
-                  </td>
-                  </tr>
-                  <tr>
-                    <td>9</td>
-                    <td align="left">Pernah Gagal kehamilan</td>
-                    <td>
-                    </td>
-                  </tr>
-                  <tr>
-                  <td>10</td>
-                  <td align="left">Pernah melahirkan dengan terikan tang / vakum</td>
-                  <td>
-                  </td>
-                  </tr>
-                  <tr>
-                  <td>11</td>
-                  <td align="left">Pernah melahirkan dengan uri dirogoh</td>
-                  <td>
-                  </td>
-                  </tr>
-                  <tr>
-                  <td>12</td>
-                  <td align="left">Pernah melahirkan dengan diberi infus/transfuse</td>
-                  <td>
-                  </td>
-                  </tr>
-                    <tr>
-                    <td>13</td>
-                    <td align="left">Pernah Operasi Sesar</td>
-                    <td>
-                    </td>
-                    </tr>
-                    <tr>
-                  <td>14</td>
-                  <td align="left">Kurang Darah</td>
-                  <td>
-                  </td>
-                  </tr>
-
-                  </table> -->
 
   							</div>
   						</div>
@@ -163,8 +76,47 @@
                     <td>{{ $trans->tgl_periksa}}</td>
                     <td>
                       <a href="{{route('Periksa.show',['id'=>$trans->id])}}" class="genric-btn primary small">Detail</a><br>
-                      <a href="{{route('ListPasien.show',['id'=>$pasien->id])}}" class="genric-btn success small">Edit</a><br>
-											<a href="{{route('ListPasien.show',['id'=>$pasien->id])}}" class="genric-btn danger small">Delete</a></td>
+                      <!-- <a href="{{route('ListPasien.edit',['id'=>$pasien->id])}}" class="genric-btn success small">Edit</a><br> -->
+                      <button class="genric-btn success small"
+                              data-myid="{{ $trans->id }}"
+                              data-myriwayat_penyakit="{{ $trans->riwayat_penyakit }}"
+                              data-myriwayat_alergi="{{ $trans->riwayat_alergi }}"
+                              data-mytekanan_darah_atas="{{ $trans->tekanan_darah_atas }}"
+                              data-mytekanan_darah_bawah="{{ $trans->tekanan_darah_bawah }}"
+                              data-myberat_badan="{{ $trans->berat_badan }}"
+                              data-mytinggi_badan="{{ $trans->tinggi_badan }}"
+                              data-mysubjective="{{ $trans->subjective }}"
+                              data-myobjective="{{ $trans->objective }}"
+                              data-mydiagnosa="{{ $trans->diagnosa }}"
+                              data-myplanning="{{ $trans->planning }}"
+                              data-mydokter="{{ $trans->dokter }}"
+                              data-myjenis_kehamilan="{{ $trans->jenis_kehamilan }}"
+                              data-mykondisi_janin="{{ $trans->kondisi_janin }}"
+                              data-myletak_kepala="{{ $trans->letak_kepala }}"
+                              data-mycairan_ketuban="{{ $trans->cairan_ketuban }}"
+                              data-myplacenta_di="{{ $trans->placenta_di }}"
+                              data-mygrade="{{ $trans->grade }}"
+                              data-mysex="{{ $trans->sex }}"
+                              data-mytaksiran_berat_janin="{{ $trans->taksiran_berat_janin }}"
+                              data-mysuami_ke="{{ $trans->suami_ke }}"
+                              data-myanak_ke="{{ $trans->anak_ke }}"
+                              data-mytgl_periksa_selanjutnya="{{ $trans->tgl_periksa_selanjutnya }}"
+                              data-mytaksiran_persalinan="{{ $trans->taksiran_persalinan }}"
+                              data-mytgl_periksa="{{ $trans->tgl_periksa }}"
+                              data-myhpht="{{ $trans->hpht }}"
+                              data-myusia_kehamilan="{{ $trans->usia_kehamilan }}"
+                              data-myketerangan="{{ $trans->keterangan }}"
+                              data-toggle="modal" data-target="#edit">Edit</button>
+
+                      <form id="delete-form-{{ $trans->id }}" action="{{ route('ListPasien.destroy',$trans->id) }}" style="display: none;" method="POST">
+                                  @csrf
+                                  @method('DELETE')
+                                </form>
+                                <button type="button" class="genric-btn danger small" onclick="if(confirm('Are you sure? You want to delete this?')){
+                                  event.preventDefault();
+                                  document.getElementById('delete-form-{{ $trans->id }}').submit();
+                                }else {  event.preventDefault();}">Delete</button>
+											<!-- <a href="{{route('ListPasien.show',['id'=>$pasien->id])}}" class="genric-btn danger small">Delete</a></td> -->
                     </td>
                     <!-- <td>
                         <button type="button" class="genric-btn info fa fa-pencil small" data-toggle="modal" data-target="#myModal1"></button>
@@ -178,6 +130,83 @@
 						</tbody>
 					</table>
 				</div>
+
+        {{-- Update data --}}
+        <div class="modal inmodal fade" id="edit" tabindex="-1" role="dialog"  aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    </div>
+                    <div class="modal-body">
+                      <form method="POST" action="{{ route('ListPasien.update',$trans->id) }}" class="form-horizontal" enctype="multipart/form-data">
+                            {{ method_field('PATCH') }}
+                        @csrf
+                                @include('dokter.pemeriksaan_fisik.form_pemeriksaan')
+                        </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+                </form>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            $('#edit').on('show.bs.modal', function (event) {
+                var button = $(event.relatedTarget) // Button that triggered the modal
+
+                var id = button.data('myid')
+                var riwayat_penyakit = button.data('myriwayat_penyakit')
+                var riwayat_alergi = button.data('myriwayat_alergi')
+                var tekanan_darah_atas = button.data('mytekanan_darah_atas')
+
+                var tekanan_darah_bawah = button.data('mytekanan_darah_bawah')
+                var riwayat_penyakit = button.data('myriwayat_penyakit')
+                var riwayat_alergi = button.data('myriwayat_alergi')
+                var tekanan_darah_atas = button.data('mytekanan_darah_atas')
+
+                var id = button.data('myid')
+                var riwayat_penyakit = button.data('myriwayat_penyakit')
+                var riwayat_alergi = button.data('myriwayat_alergi')
+                var tekanan_darah_atas = button.data('mytekanan_darah_atas')
+
+                var modal = $(this)
+
+                modal.find('.modal-body #id').val(id);
+                modal.find('.modal-body #riwayat_penyakit').val(riwayat_penyakit);
+                modal.find('.modal-body #riwayat_alergi').val(riwayat_alergi);
+                modal.find('.modal-body #tekanan_darah_atas').val(tekanan_darah_atas);
+
+
+                data-mytekanan_darah_bawah="{{ $trans->tekanan_darah_bawah }}"
+                data-myberat_badan="{{ $trans->berat_badan }}"
+                data-mytinggi_badan="{{ $trans->tinggi_badan }}"
+                data-mysubjective="{{ $trans->subjective }}"
+                data-myobjective="{{ $trans->objective }}"
+                data-mydiagnosa="{{ $trans->diagnosa }}"
+                data-myplanning="{{ $trans->planning }}"
+                data-mydokter="{{ $trans->dokter }}"
+                data-myjenis_kehamilan="{{ $trans->jenis_kehamilan }}"
+                data-mykondisi_janin="{{ $trans->kondisi_janin }}"
+                data-myletak_kepala="{{ $trans->letak_kepala }}"
+                data-mycairan_ketuban="{{ $trans->cairan_ketuban }}"
+                data-myplacenta_di="{{ $trans->placenta_di }}"
+                data-mygrade="{{ $trans->grade }}"
+                data-mysex="{{ $trans->sex }}"
+                data-mytaksiran_berat_janin="{{ $trans->taksiran_berat_janin }}"
+                data-mysuami_ke="{{ $trans->suami_ke }}"
+                data-myanak_ke="{{ $trans->anak_ke }}"
+                data-mytgl_periksa_selanjutnya="{{ $trans->tgl_periksa_selanjutnya }}"
+                data-mytaksiran_persalinan="{{ $trans->taksiran_persalinan }}"
+                data-mytgl_periksa="{{ $trans->tgl_periksa }}"
+                data-myhpht="{{ $trans->hpht }}"
+                data-myusia_kehamilan="{{ $trans->usia_kehamilan }}"
+                data-myketerangan="{{ $trans->keterangan }}"
+            })
+        </script>
 
 
 </body>
