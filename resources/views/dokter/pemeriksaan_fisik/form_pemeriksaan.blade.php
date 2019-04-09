@@ -79,7 +79,7 @@
 <div class="form-group row">
     <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Tekanan Darah Atas') }}<br><small> (mmHg)</small></label>
     <div class="col-md-6">
-        <input id="name" type="text" class="form-control{{ $errors->has('tekanan_darah_atas') ? ' is-invalid' : '' }}" name="tekanan_darah_atas" value="{{ old('tekanan_darah_atas') }}" required autofocus>
+        <input id="tekanan_darah_atas" type="text" class="form-control{{ $errors->has('tekanan_darah_atas') ? ' is-invalid' : '' }}" name="tekanan_darah_atas" value="{{ old('tekanan_darah_atas') }}" required autofocus>
     </div>
 </div>
 <div class="form-group row">

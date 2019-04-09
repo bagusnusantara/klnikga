@@ -1,6 +1,7 @@
 
 <table class="table table-striped table-bordered table-hover dataTables-example" >
 <tr>
+<td>1</td>
 <td align="left">Tekanan Darah Atas</td>
 <td>
       {{ $trans_medis_fisik->tekanan_darah_atas }}

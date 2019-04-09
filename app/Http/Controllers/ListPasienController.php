@@ -126,6 +126,16 @@ class ListPasienController extends Controller
           return redirect()->back();
         }
 
+        public function update(Request $request)
+      {
+          //save data
+          $trans = TransMedisFisik::findOrFail($request->id);
+
+          $trans->update($request->all());
+
+          return back();
+      }
+
       public function destroy($id){
         $del_user = TransMedisFisik::find($id);
         $del_user->delete();
