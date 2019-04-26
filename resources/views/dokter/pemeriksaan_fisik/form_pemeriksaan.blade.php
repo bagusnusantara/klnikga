@@ -199,6 +199,7 @@
           <select class="default-select" name="sex" id="default-select">
                   <option value="L">Laki-laki</option>
                   <option value="P">Perempuan</option>
+                  <option value="BELUM">Belum Terlihat</option>
          </select>
        </div>
   </div>
